@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8zJo6+8R2iU1AYiUJNeL5CSqDIpNFzzw10qOXzXjjO7fHijqgv2eMMl0frW7I4ltHMZNOadgFAHHlahmlub4mA==",
+  "success": true,
+  "projectFilePath": "/home/dave/test1/app/app.csproj",
+  "expectedPackageFiles": [
+    "/home/dave/.nuget/packages/polly/7.2.3/polly.7.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
