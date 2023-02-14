@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: wapp
+  name: wapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: wapp
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: wapp
+    spec:
+      containers:
+        - image: wapp
+          name: wapp
+          ports:
+            - containerPort: 5043
+          resources: {}
+      restartPolicy: Always
+status: {}

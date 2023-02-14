@@ -21,20 +21,16 @@
                 "/Views": "${workspaceFolder}/Views"
             }
         },
+        
         {
-            // Use IntelliSense to find out which attributes exist for C# debugging
-            // Use hover for the description of the existing attributes
-            // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/app/bin/Debug/net7.0/app.dll",
             "args": [],
             "cwd": "${workspaceFolder}/app",
             "stopAtEntry": false,
-            // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {
                 "action": "openExternally",
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
@@ -46,18 +42,48 @@
                 "/Views": "${workspaceFolder}/Views"
             }
         },
+
         {
             "name": ".NET Core Attach",
             "type": "coreclr",
-            "request": "attach"
-        }
+            "request": "attach",
+            
+        },
+
+        {
+            "name": "Docker .NET Core Launch App",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "netCore": {
+                "appProject": "${workspaceFolder}/app/app.csproj"
+            }
+        },
+        {
+            "name": "Docker .NET Core Launch WApp",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debugwapp",
+            "netCore": {
+                "appProject": "${workspaceFolder}/wapp/wapp.csproj"
+            }
+        },
+ 
     ],
     "compounds": [
         {
             "name": "Launch Both",
             "configurations": [".NET Core Launch (web)", ".NET Core Launch (wapp)"],
-             
+  
+            "stopAll": true,
+            "sudo": true
+        },
+        {
+            "name": "Launch Docker Both",
+            "configurations": ["Docker .NET Core Launch App", "Docker .NET Core Launch WApp"],
+            "sudo": true,
             "stopAll": true
         }
+ 
     ]
 }

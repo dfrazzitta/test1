@@ -37,9 +37,6 @@
             ],
             "problemMatcher": "$msCompile"
         },
-
-
-
         {
             "label": "buildW",
             "command": "dotnet",
@@ -75,6 +72,145 @@
                 "${workspaceFolder}/wapp/wapp.csproj"
             ],
             "problemMatcher": "$msCompile"
-        }
+        },
+
+
+
+
+
+
+
+        {
+            "type": "docker-build",
+            "label": "docker-build: debug",
+            "dependsOn": [
+                "build"
+            ],
+            "dockerBuild": {
+                "tag": "test1:dev",
+                "target": "base",
+                "dockerfile": "${workspaceFolder}/app/Dockerfile",
+                "context": "${workspaceFolder}",
+                "pull": true
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/app/app.csproj"
+            }
+        },
+        {
+            "type": "docker-build",
+            "label": "docker-build: release",
+            
+            "dependsOn": [
+                "build"
+            ],
+            "dockerBuild": {
+                "tag": "test1:latest",
+                "dockerfile": "${workspaceFolder}/app/Dockerfile",
+                "context": "${workspaceFolder}",
+                "pull": true
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/app/app.csproj"
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: debug",
+            "dependsOn": [
+                "docker-build: debug"
+            ],
+            "dockerRun": {
+                "containerName": "app"
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/app/app.csproj",
+                "enableDebugging": true
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: release",
+            "dependsOn": [
+                "docker-build: release"
+            ],
+            "dockerRun": {
+                "containerName": "app"
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/app/app.csproj"
+            }
+        },
+
+
+
+
+
+
+        {
+            "type": "docker-build",
+            "label": "docker-build: debugwapp",
+            "dependsOn": [
+                "build"
+            ],
+ 
+            "dockerBuild": {
+                "tag": "test1wapp:dev",
+                "target": "base",
+                "dockerfile": "${workspaceFolder}/wapp/Dockerfile",
+                "context": "${workspaceFolder}",
+                "pull": true,
+ 
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/wapp/wapp.csproj"
+                
+            }
+        },
+        {
+            "type": "docker-build",
+            "label": "docker-build: releasewapp",
+            "dependsOn": [
+                "build"
+            ],
+            "dockerBuild": {
+                "tag": "test1wapp:latest",
+                "dockerfile": "${workspaceFolder}/wapp/Dockerfile",
+                "context": "${workspaceFolder}",
+                "pull": true
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/wapp/wapp.csproj"
+            }
+        },
+        {
+            "type":  "docker-run",
+            "label": "docker-run: debugwapp",
+            "dependsOn": [
+                "docker-build: debugwapp"
+            ],
+            "dockerRun": {
+                "containerName": "wapp"
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/wapp/wapp.csproj",
+                "enableDebugging": true
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: releasewapp",
+            "dependsOn": [
+                "docker-build: releasewapp"
+            ],
+            "dockerRun": {
+                "containerName": "wapp"
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/wapp/wapp.csproj"
+            }
+        },
+  
+ 
     ]
 }

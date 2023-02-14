@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: wapp
+  name: wapp
+spec:
+  ports:
+    - name: "5043"
+      port: 5043
+      targetPort: 5043
+  selector:
+    io.kompose.service: wapp
+status:
+  loadBalancer: {}

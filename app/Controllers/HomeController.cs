@@ -34,12 +34,12 @@ public class HomeController : Controller
                 await retryPolicy.ExecuteAsync(async () =>
                 {
                     var response = await httpClient
-                    .GetAsync("http://localhost:5000/weatherforecast");
+                    .GetAsync("http://172.17.0.4/weatherforecast");
                     //response.EnsureSuccessStatusCode();
+                    var resData = response.Content.ReadAsStringAsync();
                     ViewData["json"] = response;
+                    ViewData["resData"] = resData.Result;
                 });
-                 
-                 
             }
         return View();
     }

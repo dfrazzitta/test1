@@ -6,6 +6,7 @@
 /home/dave/test1/app/bin/Debug/net7.0/app.runtimeconfig.json
 /home/dave/test1/app/bin/Debug/net7.0/app.dll
 /home/dave/test1/app/bin/Debug/net7.0/app.pdb
+/home/dave/test1/app/bin/Debug/net7.0/Polly.dll
 /home/dave/test1/app/obj/Debug/net7.0/app.csproj.AssemblyReference.cache
 /home/dave/test1/app/obj/Debug/net7.0/app.GeneratedMSBuildEditorConfig.editorconfig
 /home/dave/test1/app/obj/Debug/net7.0/app.AssemblyInfoInputs.cache
@@ -24,10 +25,9 @@
 /home/dave/test1/app/obj/Debug/net7.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /home/dave/test1/app/obj/Debug/net7.0/scopedcss/bundle/app.styles.css
 /home/dave/test1/app/obj/Debug/net7.0/scopedcss/projectbundle/app.bundle.scp.css
+/home/dave/test1/app/obj/Debug/net7.0/app.csproj.CopyComplete
 /home/dave/test1/app/obj/Debug/net7.0/app.dll
 /home/dave/test1/app/obj/Debug/net7.0/refint/app.dll
 /home/dave/test1/app/obj/Debug/net7.0/app.pdb
 /home/dave/test1/app/obj/Debug/net7.0/app.genruntimeconfig.cache
 /home/dave/test1/app/obj/Debug/net7.0/ref/app.dll
-/home/dave/test1/app/bin/Debug/net7.0/Polly.dll
-/home/dave/test1/app/obj/Debug/net7.0/app.csproj.CopyComplete
